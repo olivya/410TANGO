@@ -19,9 +19,18 @@ public class cameraControl : MonoBehaviour {
 		position.x = target.position.x;
 		transform.position = position;
 
+
+
 		if (target.position.y > heightLimit) { //	transform.position = position;&& gameObject.GetComponent<playerController> ().grounded) {
 			position.y = target.position.y * 0.7f; //- target.position.y * 0.3f;
 			transform.position = position;
+			if (Camera.main.orthographicSize < 8) { 
+				Camera.main.orthographicSize = Camera.main.orthographicSize + 0.05f;
+			}
+		}
+
+		else if (Camera.main.orthographicSize > 6) { 
+			Camera.main.orthographicSize = Camera.main.orthographicSize - 0.05f;
 		}
 
 //		if(resetCam) {
