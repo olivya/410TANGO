@@ -33,7 +33,6 @@ public class windAtkScript : MonoBehaviour {
 	public void doAttack(bool isEnemy)
 	{
 		playerMP pmp = gameObject.GetComponent<playerMP> ();
-		pmp.AdjustCurMagic (-1);
 		
 		if (CanAttack)
 		{
@@ -41,6 +40,7 @@ public class windAtkScript : MonoBehaviour {
 			
 			// Create a new shot
 			var shotTransform = Instantiate(shotPrefab) as Transform;
+			pmp.AdjustCurMagic (-1);
 			
 			// Assign position
 			shotTransform.position = transform.position;
