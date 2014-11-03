@@ -8,6 +8,7 @@ public class playerMP : MonoBehaviour {
 	private float magicBarlength;
 	private float maxMagicBarWidth = Screen.width / 2;
 	public GUIStyle magicStyle;
+	public float timeSinceLastMagicIncrease;
 	
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,11 @@ public class playerMP : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		AdjustCurMagic (0);
+		if (Time.time - timeSinceLastMagicIncrease > 2) {
+			AdjustCurMagic(1);
+			timeSinceLastMagicIncrease = Time.time;
+		}
+		
 	}
 	
 	void OnGUI() {
