@@ -26,7 +26,7 @@ public class enemyHp : MonoBehaviour {
 	}
 	
 	void OnGUI() {
-		if (gameObject.GetComponent<enemyAI> ().spotted || curHealth != 3) { //displays health if spotted OR if enemy has already taken damage
+		if (gameObject.GetComponent<testEnemyAI> ().noticed || curHealth != 3) { //displays health if spotted OR if enemy has already taken damage
 			GUI.Box (new Rect (screenPosition.x - 55, screenPosition.y - 60, maxHealthBarlength, 20), "");
 			GUI.Box (new Rect (screenPosition.x - 55, screenPosition.y - 60, healthBarlength, 20), curHealth + "/" + maxHealth, enemyHealthStyle);
 		}
