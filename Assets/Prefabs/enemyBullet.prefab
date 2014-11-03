@@ -15,7 +15,7 @@ GameObject:
   - 58: {fileID: 5800000}
   - 198: {fileID: 19800000}
   - 199: {fileID: 19900000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: enemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

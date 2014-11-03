@@ -74,6 +74,14 @@ public class playerController : MonoBehaviour {
 
 		//bool shoot = Input.GetKeyDown(KeyCode.Space) && Input.GetKey(KeyCode.LeftShift); //shooting controls
 		bool shoot = Input.GetKeyDown (KeyCode.Space);
+
+		if (shoot) {
+			windAtkScript weapon = GetComponent<windAtkScript>();
+			if (weapon != null) {
+				weapon.doAttack(false); //false because the player is not an enemy
+			}
+		}
+
 		//shoot |= Input.GetKeyDown(KeyCode.Space); //can use this line to set up alternative button to press and either will work
 
 		float verticalSpeed = rigidbody2D.velocity.y;
@@ -129,13 +137,6 @@ public class playerController : MonoBehaviour {
 			if(!hovering)
 				rigidbody2D.gravityScale = 1f;
 			print("*** Drop gravity CANCELLED and is now "+rigidbody2D.gravityScale+" ***");
-		}
-
-		if (shoot) {
-			windAtkScript weapon = GetComponent<windAtkScript>();
-			if (weapon != null) {
-				weapon.Attack(false); //false because the player is not an enemy
-			}
 		}
 	}
 	

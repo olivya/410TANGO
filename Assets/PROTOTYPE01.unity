@@ -20240,7 +20240,7 @@ MonoBehaviour:
   groundCheck: {fileID: 1071350384}
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294966015
   jumpForce: 700
   hoverForce: 300
   hoverGravity: .600000024
