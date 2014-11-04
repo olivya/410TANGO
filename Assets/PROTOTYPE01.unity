@@ -5471,6 +5471,26 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1998865218}
+    - target: {fileID: 6100000, guid: 841829a39b6d04bd0a426e4f2285385d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100002, guid: 841829a39b6d04bd0a426e4f2285385d, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 841829a39b6d04bd0a426e4f2285385d, type: 2}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 841829a39b6d04bd0a426e4f2285385d, type: 2}
+      propertyPath: detection
+      value: 
+      objectReference: {fileID: 821001285}
+    - target: {fileID: 11400000, guid: 841829a39b6d04bd0a426e4f2285385d, type: 2}
+      propertyPath: body
+      value: 
+      objectReference: {fileID: 821001281}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 841829a39b6d04bd0a426e4f2285385d, type: 2}
   m_RootGameObject: {fileID: 821001278}
@@ -5493,7 +5513,7 @@ GameObject:
   - 114: {fileID: 821001286}
   m_Layer: 0
   m_Name: testEnemy01
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5519,6 +5539,8 @@ MonoBehaviour:
   speed: 3
   shotPrefab: {fileID: 400000, guid: fdac378608dd346d2aaa1184b0badf98, type: 2}
   shootingRate: 1
+  body: {fileID: 821001281}
+  detection: {fileID: 821001285}
 --- !u!50 &821001280
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -15238,7 +15260,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: c58b117077468424eb4b3f1f21eb6e09, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 9.9610815
+      value: 9.10000038
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c58b117077468424eb4b3f1f21eb6e09, type: 2}
       propertyPath: m_LocalPosition.y
@@ -15270,7 +15292,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c58b117077468424eb4b3f1f21eb6e09, type: 2}
       propertyPath: m_LocalScale.x
-      value: 28.4200001
+      value: 24.8999996
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: c58b117077468424eb4b3f1f21eb6e09, type: 2}
       propertyPath: m_Name
@@ -15466,8 +15488,8 @@ Transform:
   m_PrefabInternal: {fileID: 1537649917}
   m_GameObject: {fileID: 1562597954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.9610815, y: -.75, z: 0}
-  m_LocalScale: {x: 28.4200001, y: .800000012, z: 1}
+  m_LocalPosition: {x: 9.10000038, y: -.75, z: 0}
+  m_LocalScale: {x: 24.8999996, y: .800000012, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
@@ -15735,6 +15757,8 @@ MonoBehaviour:
   speed: 3
   shotPrefab: {fileID: 400000, guid: fdac378608dd346d2aaa1184b0badf98, type: 2}
   shootingRate: 1
+  body: {fileID: 0}
+  detection: {fileID: 0}
 --- !u!1 &1615584885
 GameObject:
   m_ObjectHideFlags: 0
@@ -20333,6 +20357,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shotPrefab: {fileID: 400000, guid: d9739ff34479c4c70969da033db5a2a3, type: 2}
   shootingRate: 1
+  facingRight: 0
 --- !u!114 &1998865226
 MonoBehaviour:
   m_ObjectHideFlags: 0
