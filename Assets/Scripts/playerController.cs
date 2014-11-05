@@ -28,6 +28,11 @@ public class playerController : MonoBehaviour {
 
 	public Transform other;
 
+	public bool movingRight;
+	public bool movingLeft;
+
+	public float move;
+
 	//public float distance;
 
 	void Awake () {
@@ -36,6 +41,8 @@ public class playerController : MonoBehaviour {
 
 	void Start () {
 		anim = GetComponent<Animator>();
+		movingRight = false;
+		movingLeft = false;
 
 	}
 
@@ -53,7 +60,7 @@ public class playerController : MonoBehaviour {
 		}
 
 		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y); //every frame saying "this is how fast we're moving up/down" 
-		float move = Input.GetAxis("Horizontal"); //by default Input.GetAxis is mapped to the arrow keys
+		move = Input.GetAxis("Horizontal"); //by default Input.GetAxis is mapped to the arrow keys
 		anim.SetFloat("Speed", Mathf.Abs(move)); //absolute value because you don't care if you're moving left or right, just the speed. the animator handles the rest.
 		rigidbody2D.velocity = new Vector2(move * maxSpeed, rigidbody2D.velocity.y); //taking current velocity, moving left or right based on what key pressed * maxSpeed, leaving y the same
 
@@ -61,10 +68,30 @@ public class playerController : MonoBehaviour {
 			Flip ();
 		else if(move < 0 &&facingRight) //else, if move is less than zero, and are ARE facing right, flip.
 			Flip();
-	}
+
+		}
+
+
 
 	void Update() { //read more accurately than FixedUpdate, pressing spacebar might be missed otherwise
+		float move = Input.GetAxis("Horizontal");
 
+		if (move > 0) {
+			movingRight = true;
+			movingLeft = false;
+			print ("moving right");
+		}
+		if (move < 0) {
+			movingLeft = true;
+			movingRight = false;
+			print ("moving left");
+		}
+
+		if (move == 0) {
+			movingRight = false;
+			movingLeft = false;
+			print ("stopped");
+		}
 
 		//distance = Mathf.Abs(other.position.x - transform.position.x);
 		//distance = other.position.x - transform.position.x;
