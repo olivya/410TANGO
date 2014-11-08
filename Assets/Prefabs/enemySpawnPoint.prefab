@@ -39,7 +39,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e2fa21cc65305541be29750a5d256a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemies: {fileID: 100010, guid: 078b9eedec70a4c8f9a7e13e5f6024f1, type: 2}
+  enemies: {fileID: 100000, guid: 37c45043bbddcaf48b57f96adf58517e, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

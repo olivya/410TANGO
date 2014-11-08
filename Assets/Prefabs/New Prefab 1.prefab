@@ -16,7 +16,7 @@ GameObject:
   - 61: {fileID: 6100002}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: testEnemy
+  m_Name: New Prefab 1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   noticed: 0
   distance: 0
   minDistance: 10
-  player: {fileID: 0}
+  player: {fileID: 400006, guid: b52409906bf8b9643a5a968033608d61, type: 2}
   tooClose: 0
   speed: 3
   shotPrefab: {fileID: 400000, guid: fdac378608dd346d2aaa1184b0badf98, type: 2}
@@ -123,7 +123,7 @@ MonoBehaviour:
   isEnemy: 1
   curHealth: 3
   screenPosition: {x: 0, y: 0, z: 0}
-  target: {fileID: 0}
+  target: {fileID: 400000}
   enemyHealthStyle:
     m_Name: 
     m_Normal:

@@ -108,6 +108,15 @@ public class playerController : MonoBehaviour {
 				weapon.doAttack(false); //false because the player is not an enemy
 			}
 		}
+		
+		bool atk = Input.GetKeyDown (KeyCode.C);
+		
+		if (atk) {
+			closeAtkScript melee = GetComponent<closeAtkScript>();
+			if (melee != null) {
+				melee.doAttack(false); //false because the player is not an enemy
+			}
+		}
 
 		//shoot |= Input.GetKeyDown(KeyCode.Space); //can use this line to set up alternative button to press and either will work
 
