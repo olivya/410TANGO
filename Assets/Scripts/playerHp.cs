@@ -6,6 +6,7 @@ public class playerHp : MonoBehaviour {
 	public int maxHealth = 10;
 	public int curHealth = 10;
 	private float healthBarlength;
+	public bool respawned = false;
 	public bool isEnemy = false; // // // // added not an enemy<<<<<<<<<<<<<new
 	float gearCount;
 	private float maxHealthBarWidth = Screen.width / 2;
@@ -22,6 +23,7 @@ public class playerHp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		AdjustcurHealth (0);
+		respawned = false;
 	}
 	
 	void OnGUI() {
@@ -56,7 +58,8 @@ public class playerHp : MonoBehaviour {
 		}
 		if(curHealth == 0) {
 			transform.position = GetComponent<checkPoint>().spawnPoint.position;
-			curHealth = 10;
+			AdjustcurHealth(10);
+			respawned = true;
 			//Application.LoadLevel("PROTOTYPE01");
 		}
 
