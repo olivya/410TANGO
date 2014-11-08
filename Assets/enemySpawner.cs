@@ -6,19 +6,18 @@ public class enemySpawner : MonoBehaviour {
 	//public float spawnTime = 5f;		// The amount of time between each spawn.
 	//public float spawnDelay = 3f;		// The amount of time before spawning starts.
 	public GameObject enemies;		// Array of enemy prefabs.
-	
+
 	void Start ()
 	{
 		// Start calling the Spawn function repeatedly after a delay .
 		//InvokeRepeating("Spawn", spawnDelay, spawnTime);
-		Invoke ("Spawn", 1);
+		//Invoke ("Spawn", 0);
 	}
 
 	void Update (){
-		playerHp other = GetComponent<playerHp>();
-		if (other.curHealth == 0) {
-			Invoke ("Spawn", 1);
-		}
+		if (GameObject.Find ("player").GetComponent<playerHp>().respawned) {				
+			Invoke ("Spawn", 0);
+				}
 	}
 	
 	void Spawn ()
