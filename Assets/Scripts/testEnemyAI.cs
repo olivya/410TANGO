@@ -16,6 +16,9 @@ public class testEnemyAI : MonoBehaviour {
 	public float shootingRate = 1f;
 	private float shootCooldown;
 
+	public BoxCollider2D body;
+	public BoxCollider2D detection;
+
 	void Start () {
 		shootCooldown = 0f;
 		facingRight = true;
@@ -44,6 +47,10 @@ public class testEnemyAI : MonoBehaviour {
 
 					Attack (true);
 			}
+
+//		if(other.tag == "windAtk") {
+//			Physics2D.IgnoreCollision(other.collider2D, detection);
+//			}
 		}
 
 	public void Attack(bool isEnemy){

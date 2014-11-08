@@ -8,10 +8,7 @@ public class windAtkScript : MonoBehaviour {
 	public float shootingRate = 0.5f;
 	
 	private float shootCooldown;
-	
-	
-	//	public bool shootingLeft;
-	
+	public bool facingRight;
 	
 	void Start() {
 		shootCooldown = 0f;
@@ -22,6 +19,7 @@ public class windAtkScript : MonoBehaviour {
 			shootCooldown -= Time.deltaTime;
 		}
 	}
+
 	public void Attack (bool isEnemy)
 	{
 		playerMP pmp = gameObject.GetComponent<playerMP> (); 
@@ -37,13 +35,15 @@ public class windAtkScript : MonoBehaviour {
 		if (CanAttack)
 		{
 			shootCooldown = shootingRate;
-			
+			facingRight = gameObject.GetComponent<playerController>().facingRight;
+
 			// Create a new shot
 			var shotTransform = Instantiate(shotPrefab) as Transform;
-			pmp.AdjustCurMagic (-1);
+			pmp.AdjustCurMagic (-1); //only decrease if shot is actually instantiated
 			
-			// Assign position
-			shotTransform.position = transform.position;
+			// Assign position (adjusts position x so it instantiates in front of the player)
+			if (facingRight) shotTransform.position = new Vector2(transform.position.x + 1, transform.position.y);
+			if (!facingRight) shotTransform.position = new Vector2(transform.position.x - 1, transform.position.y);
 			
 			// The is enemy property
 			shotScript shot = shotTransform.gameObject.GetComponent<shotScript>();
@@ -56,10 +56,11 @@ public class windAtkScript : MonoBehaviour {
 			moveScript move = shotTransform.gameObject.GetComponent<moveScript>();
 			
 			if (move != null) {
-				if (gameObject.GetComponent<playerController>().facingRight) { //determines if player is facing left & flips bullet sprite accordingly
+
+				if (facingRight) { //determines if player is facing left & flips bullet sprite accordingly
 					move.direction = this.transform.right; // towards in 2D space is the right of the sprite
 				}
-				else {
+				if (!facingRight) {
 					shotTransform.localScale = new Vector2(-1, -1);
 					move.direction = this.transform.right * -1;
 				}
