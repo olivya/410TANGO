@@ -13,6 +13,13 @@ public class enemySpawner : MonoBehaviour {
 		//InvokeRepeating("Spawn", spawnDelay, spawnTime);
 		Invoke ("Spawn", 1);
 	}
+
+	void Update (){
+		playerHp other = GetComponent<playerHp>();
+		if (other.curHealth == 0) {
+			Invoke ("Spawn", 1);
+		}
+	}
 	
 	void Spawn ()
 	{
